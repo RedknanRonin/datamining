@@ -2,7 +2,7 @@ import csv
 from rdkit import Chem
 from rdkit.Chem import Draw
 
-# Read output.txt
+
 substructures = []
 with open('week4/output.txt', 'r') as f:
     reader = csv.DictReader(f)
@@ -14,10 +14,8 @@ with open('week4/output.txt', 'r') as f:
         except ValueError:
             continue
 
-# Sort by support descending
 substructures.sort(key=lambda x: x['support'], reverse=True)
 
-# Get top 5
 top5 = substructures[:5]
 
 print(f"Found {len(substructures)} substructures.")
